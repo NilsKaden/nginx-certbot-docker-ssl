@@ -3,9 +3,6 @@ services:
   certbot:
     image: certbot/certbot
     restart: always
-    ports:
-      - "80:30"
-      - "443:443"
     volumes:
       - ./data/certbot/conf:/etc/letsencrypt
       - ./data/certbot/www:/var/www/certbot
@@ -14,6 +11,9 @@ services:
   nginx:
     image: nginx:alpine
     restart: always
+    ports:
+      - "80:30"
+      - "443:443"
     volumes:
       - ./data/nginx:/etc/nginx/conf.d
       - ./data/certbot/conf:/etc/letsencrypt
