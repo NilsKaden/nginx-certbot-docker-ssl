@@ -22,4 +22,4 @@ services:
 
 networks:
   external:
-    proxy-network:
+    name: proxy-network
